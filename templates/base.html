@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {% include 'head.html' %}
+<body>
+    {% include 'headers.html' %}
+    {% include 'navbar.html' %}
+    {% include 'category_sidebar.html' %}
+    {% include 'cart_sidebar.html' %}
+    {% include 'nav_sidebar.html' %}
+    {% include 'mobile_menu.html' %}
+    {% include 'modal_fade.html' %}
+
+    {% block content %}
+
+    {% endblock content %}
+
+    {% include 'newsletter.html' %}
+    {% include 'intro.html' %}
+    {% include 'footer.html' %}
+    {% include 'javascript.html' %}
+
+    {% block scripts %}
+
+    {% endblock %}
+</body>
+</html>

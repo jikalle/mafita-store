@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+    <div class="col">
+        <h2>{{query}}</h2> 
+        {% for product in products %}
+        <div class="product-card">
+            <div class="product-media">
+                <div class="product-label"><label class="label-text sale">sale</label></div>
+                <button class="product-wish wish"><i class="fas fa-heart"></i></button>
+                <a class="product-image" href="{% url 'product-detail' product.id %}">
+                    <img src="{{product.imageUrl}}" alt="product">
+                </a>
+                <div class="product-widget">
+                    <a title="Product Compare" href="{% url 'product-detail' product.id %}"
+                        class="fas fa-random"></a><a title="Product Video"
+                        href="{% url 'product-detail' product.id %}"
+                        class="venobox fas fa-play" data-autoplay="true" data-type="video">
+                    </a>
+                    <a title="Product View" href="{% url 'product-detail' product.id %}" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view"></a>
+                </div>
+            </div>
+            <div class="product-content">
+                <div class="product-rating"><i class="active icofont-star"></i><i
+                        class="active icofont-star"></i><i class="active icofont-star"></i><i
+                        class="active icofont-star"></i><i class="icofont-star"></i><a
+                        href="{% url 'product-detail' product.id %}">(3)</a></div>
+                <h6 class="product-name">
+                    <a href="{% url 'product-detail' product.id %}">{{product.title}}</a>
+                </h6>
+                <h6 class="product-price"><del>₦34</del><span>₦{{product.price}}<small>/piece</small></span></h6><button
+                    class="product-add" title="Add to Cart"><i
+                        class="fas fa-shopping-basket"></i><span>add</span></button>
+                <div class="product-action"><button class="action-minus" title="Quantity Minus"><i
+                            class="icofont-minus"></i></button><input class="action-input"
+                        title="Quantity Number" type="text" name="quantity" value="1"><button
+                        class="action-plus" title="Quantity Plus"><i class="icofont-plus"></i></button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

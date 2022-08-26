@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    
+    <section class="inner-section single-banner" style="background: url(images/single-banner.jpg) no-repeat center;">
+        <div class="container">
+            <h2>Vendor Registration</h2>
+            <!-- <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+            </ol> -->
+        </div>
+    </section>
+    <section class="inner-section contact-part">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-12">
+                    <form class="contact-form" method="post" action="">
+                        {% csrf_token %}
+                        <!-- {{form.as_p}} -->
+                        <h4>Fill in your Shop Details</h4>
+                        {% for field in form %}
+                        <div class="form-group">
+                            <div class="form-input-group">
+                                <label for="">{{field.label}}</label>
+                                <div class="form-control">{{field}}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <button type="submit" class="form-btn-group">
+                            <i class="fas fa-envelope"></i>
+                            <span>send message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="branch-card"><img src="{% static 'images/branch/01.jpg' %}" alt="branch">
+                        <div class="branch-overlay">
+                            <h3>dhaka</h3>
+                            <p>kawran bazar, 1100 east tejgaon, dhaka.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="branch-card"><img src="{% static 'images/branch/02.jpg' %}" alt="branch">
+                        <div class="branch-overlay">
+                            <h3>Narayanganj</h3>
+                            <p>west jalkuri, 1420 shiddirganj, narayanganj.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="branch-card"><img src="{% static 'images/branch/03.jpg' %}" alt="branch">
+                        <div class="branch-overlay">
+                            <h3>chandpur</h3>
+                            <p>east lautuli, 2344 faridganj, chandpur.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="branch-card"><img src="{% static 'images/branch/04.jpg' %}" alt="branch">
+                        <div class="branch-overlay">
+                            <h3>noakhli</h3>
+                            <p>begumganj, 3737 shonaimuri, noakhli.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock content %}

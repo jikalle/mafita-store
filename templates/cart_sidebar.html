@@ -1,0 +1,51 @@
+{% load static %}
+
+<aside class="cart-sidebar">
+    <div class="cart-header">
+      <div class="cart-total">
+        <i class="fas fa-shopping-basket"></i><span>total item ({{cart|length}})</span>
+      </div>
+      <button class="cart-close"><i class="icofont-close"></i></button>
+    </div>
+    {% if cart %}
+    <ul class="cart-list">
+      {% for item in cart %}
+      <li class="cart-item">
+        <div class="cart-media">
+          <a href="#"><img src="{{item.product.imageUrl}}" alt="product" /></a>
+          <button class="cart-delete">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </div>
+        <div class="cart-info-group">
+          <div class="cart-info">
+            <h6><a href="product-single.html">{{item.product.title}}</a></h6>
+            <p>Unit Price - ₦{{item.product.price}}</p>
+          </div>
+          <div class="cart-action-group">
+            <div class="product-action">
+              <button class="action-minus" title="Quantity Minus"><a href="?update_quantity={{item.product.id}}&quantity=-1"><i class="icofont-minus"></i></a></button>
+              <input class="action-input" title="Quantity Number" type="text" name="quantity" value="1"/>
+              <button class="action-plus" title="Quantity Plus"><a href="?update_quantity={{item.product.id}}&quantity=1"><i class="icofont-plus"></i></a></button>
+            </div>
+            <h6>₦{{item.product.total_price}}</h6>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <h5>There is nothing to show yet</h5>
+    {% endif %}
+    <div class="cart-footer">
+      <button class="coupon-btn"><a href="#">Do you have a coupon</a></button>
+      <form class="coupon-form">
+        <input type="text" placeholder="Enter your coupon code" />
+        <button type="submit"><span>apply</span></button>
+      </form>
+      <a class="cart-checkout-btn" href="{% url 'cart' %}">
+        <span class="checkout-label">Proceed to Cart</span>
+        <span class="checkout-price">₦{{cart.get_total_cost}}</span>
+      </a>
+    </div>
+  </aside>

@@ -1,0 +1,8 @@
+Categories = product_cat, cat.product.gender='male' or 'female' in Categories_list in header
+Categories_types = wrappers, veils, vois, laces, hijab, emblish super wax, embroidry atampa, sequence atampa,
+                    swiss laces, swiss atampa, swiss procade, austrilia laces
+product = need discount, delivery fee
+UserProfile =  has to have delivery-address
+
+
+Niger = Buy ready made dress

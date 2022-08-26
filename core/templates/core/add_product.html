@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="inner-section single-banner" style="background: url(images/single-banner.jpg) no-repeat center;">
+        <div class="container">
+            <h2>contact us</h2>
+            <!-- <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+            </ol> -->
+        </div>
+    </section>
+    <section class="inner-section contact-part">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 inline">
+                    <form class="contact-form" method="post" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <h4 class="contact-form center">Add your product</h4>
+                        {% for field in form %}
+                        <div class="form-group">
+                            <div class="form-input-group">
+                                <label for="product">{{field.label}}</label>
+                                <fieldset class="form-control" style="display: inline;">{{field}}</fieldset> 
+                                <hr>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <button type="submit" class="form-btn-group">
+                            <i class="fas fa-plus"></i>
+                            <span>Add</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock content %}
